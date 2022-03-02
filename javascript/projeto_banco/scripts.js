@@ -1,0 +1,42 @@
+class ContaBancaria {
+    
+}
+
+class Lancamento {
+
+}
+
+
+// var conta = new ContaBancaria(1212, 333, 1000);
+
+
+// controller: interação com UI
+function efetuarOperacao(acao) {
+    let valor = obterValor();
+    alert(' IMPLEMENTAR !!! ');      
+}
+
+
+function obterValor() {
+    const input = document.querySelector("#valor");
+    let valor = input.value;
+    return valor;
+}
+
+function validar(valor) {
+    if (!valor || valor.length === 0) {
+        alert('Valor não preenchido!');
+        return false;
+    }
+    const regex = /^[0-9]*\.?[0-9]*$/;
+    const isNumerico = valor.match(regex);
+    if (!isNumerico) {
+        alert('Valor deve ser numérico, parte fracionária separada por ponto e ser maior que zero!'); 
+        return false;
+    }
+    if (parseFloat(valor) === 0) {
+        alert('Valor não pode ser zero!');
+        return false;
+    }
+    return true;
+}
