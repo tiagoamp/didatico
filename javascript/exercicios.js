@@ -196,15 +196,11 @@ console.log('contador', contador);
  Percorra o array abaixo e imprima cada elemento da forma indicada em cada item.
  Imprima o valor de cada elemento usando:
  a) Repetição com 'for' (tradicional);
- b) Repetição com 'for .. in';
- c) Repetição com 'for .. of';
- d) Repetição com 'while'.
+ b) Repetição com 'for .. of';
+ c) Repetição com 'while'.
 */
 var arr = [12, 67, 23, 32];
 for (var i=0; i < arr.length; i++) {
-    console.log(arr[i]);
-}
-for (var i in arr) {
     console.log(arr[i]);
 }
 for(var e of arr) {
