@@ -25,8 +25,8 @@ alert('Olá usuário do sistema');
  "Tem certeza que deseja sair do sistema?"
  Crie uma variável para guardar a resposta e imprima o valor dessa variável no console do navegador.
  Imprima também no console no tipo da variável criada ("typeof").
+ */
  var resposta = confirm("Tem certeza que quer sair do sistema?");
-*/
 console.log(typeof(resposta));
 console.log(resposta);
 
