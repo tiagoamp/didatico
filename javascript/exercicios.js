@@ -56,7 +56,7 @@ alert("Seu herói favorito é: " + heroi);
 var b = 12;
 var h = 8;
 var area = (b * h) / 2;
-console.log(area);  // 48
+console.log(area); 
 
 
 /*
@@ -72,7 +72,7 @@ var pi = 3.14;
 var r = 3;
 var h = 7;
 var v = pi * r**2 * h;
-console.log(v);   // 1004.80 cm3
+console.log(v); 
 
 
 /*
@@ -131,7 +131,7 @@ console.log( typeof(arr[4]) ); // number
 */
 console.log( notas[2][0] );   // 8   
 console.log( notas[3][1] );    // 9.5   
-console.log( notas[0][0] + notas[1][0] + notas[2][0] + notas[3][0] );   // 25.5
+console.log( notas[0][0] + notas[1][0] + notas[2][0] + notas[3][0] ); 
 
 
 /*
