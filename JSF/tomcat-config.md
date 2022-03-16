@@ -36,6 +36,7 @@ Adicionar bibliotecas no Tomcat (tempo de execução), no diretório '_apache-to
 - [jsf-api-2.2.20.jar](libs/jsf-api-2.2.20.jar)
 - [jsf-impl-2.2.20.jar](libs/jsf-impl-2.2.20.jar)
 - [jstl-1.2](libs/jstl-1.2.jar)
+- [javax.annotation-api-1.3.2.jar](libs/javax.annotation-api-1.3.2.jar)
 
 ---
 
