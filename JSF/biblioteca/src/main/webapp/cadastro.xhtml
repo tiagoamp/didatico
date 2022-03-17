@@ -22,8 +22,7 @@
 		<span class="titulo-pagina">Formulário de Cadastro de Livro</span>
 
 		<h:form id="form-cadastro-livro" styleClass="form-livro-container">
-			<h:messages styleClass="form-mensagens" /> 
-							
+
 			<h:panelGrid id="panel-cadastro-livro" columns="2" styleClass="input-container">
 				
 				<h:outputLabel value="Identificador" for="input-id" rendered="#{livroBean.livro.id != null}"/>
@@ -31,47 +30,65 @@
 					disabled="true" rendered="#{livroBean.livro.id != null}" />
 	
 				<h:outputLabel value="ISBN(13)" for="input-isbn" />
-				<h:inputText value="#{livroBean.livro.isbn}" id="input-isbn" required="true" 
-					requiredMessage="Campo obrigatório: ISBN"
-					validatorMessage="Tamanho inválido: ISBN"
-					converterMessage="Formato Inválido: ISBN">
-					<f:validateLength minimum = "13" maximum = "13" />
-				</h:inputText>
-				
+				<h:panelGroup styleClass="input-campo-e-erro">
+					<h:inputText value="#{livroBean.livro.isbn}" id="input-isbn" required="true"
+						requiredMessage="#{msg['campo.obrigatorio']}"
+						validatorMessage="#{msg['campo.invalido.tamanho']}"
+						converterMessage="#{msg['campo.invalido.formato']}">
+						<f:validateLength minimum = "13" maximum = "13" />
+					</h:inputText>
+					<h:message for="input-isbn" styleClass="form-mensagens" />
+				</h:panelGroup>
+
 				<h:outputLabel value="Título" for="input-titulo" />
-				<h:inputText value="#{livroBean.livro.titulo}" id="input-titulo" maxlength="100" required="true"
-					requiredMessage="Campo Obrigatório: Título"
-					validatorMessage="Tamanho inválido: Título">
-					<f:validateLength minimum = "2" maximum = "100" />
-				</h:inputText>
-				
+				<h:panelGroup styleClass="input-campo-e-erro">
+					<h:inputText value="#{livroBean.livro.titulo}" id="input-titulo" maxlength="100" required="true"
+						requiredMessage="#{msg['campo.obrigatorio']}"
+						validatorMessage="#{msg['campo.invalido.tamanho']}">
+						<f:validateLength minimum = "2" maximum = "100" />
+					</h:inputText>
+					<h:message for="input-titulo" styleClass="form-mensagens" />
+				</h:panelGroup>
+
 				<h:outputLabel value="Autor" for="input-autor" />
-				<h:inputText value="#{livroBean.livro.autor}" id="input-autor" maxlength="100" required="true" 
-					requiredMessage="Campo Obrigatório: Autor" 
-					validatorMessage="Tamanho inválido: Autor">
-					<f:validateLength minimum = "2" maximum = "100" />
-				</h:inputText>
-				
+				<h:panelGroup styleClass="input-campo-e-erro">
+					<h:inputText value="#{livroBean.livro.autor}" id="input-autor" maxlength="100" required="true"
+						requiredMessage="#{msg['campo.obrigatorio']}"
+						validatorMessage="#{msg['campo.invalido.tamanho']}">
+						<f:validateLength minimum = "2" maximum = "100" />
+					</h:inputText>
+					<h:message for="input-autor" styleClass="form-mensagens" />
+				</h:panelGroup>
+
 				<h:outputLabel value="Categoria" for="input-categoria" />
-				<h:selectOneMenu value="#{livroBean.livro.categoria}" id="input-categoria" styleClass="combobox-categoria" required="true" 
-					requiredMessage="Campo Obrigatório: Categoria"> 
-			   		<f:selectItem itemValue="#{null}" itemLabel="-- selecione --" />
-			   		<f:selectItems value="#{livroBean.categorias}" var="cat" itemValue="#{cat}" itemLabel="#{cat}" />
-				</h:selectOneMenu> 
-						
+				<h:panelGroup styleClass="input-campo-e-erro">
+					<h:selectOneMenu value="#{livroBean.livro.categoria}" id="input-categoria" styleClass="combobox-categoria" required="true"
+						requiredMessage="#{msg['campo.obrigatorio']}">
+						<f:selectItem itemValue="#{null}" itemLabel="-- selecione --" />
+						<f:selectItems value="#{livroBean.categorias}" var="cat" itemValue="#{cat}" itemLabel="#{cat}" />
+					</h:selectOneMenu>
+					<h:message for="input-categoria" styleClass="form-mensagens" />
+				</h:panelGroup>
+
 				<h:outputLabel value="Data de Publicação" for="input-data-pub" />
-				<h:inputText value="#{livroBean.livro.dataPublicacao}" id="input-data-pub" a:placeholder="dd/mm/aaaa"
-					converterMessage="Formato Inválido: Data de Publicação">
-					<f:converter converterId="MeuLocalDateConverter" />
-				</h:inputText>
-				
+				<h:panelGroup styleClass="input-campo-e-erro">
+					<h:inputText value="#{livroBean.livro.dataPublicacao}" id="input-data-pub" a:placeholder="dd/mm/aaaa"
+						converterMessage="#{msg['campo.invalido.formato']}">
+						<f:converter converterId="MeuLocalDateConverter" />
+					</h:inputText>
+					<h:message for="input-data-pub" styleClass="form-mensagens" />
+				</h:panelGroup>
+
 				<h:outputLabel value="Nro de Páginas" for="input-paginas" />
-				<h:inputText value="#{livroBean.livro.nroDePaginas}" id="input-paginas"
-					validatorMessage="Valor inválido: Nro de Páginas" 
-					converterMessage="Valor Inválido: Nro de Páginas" >
-					<f:validateLongRange minimum = "1" maximum = "9999" />
-				</h:inputText>
-				
+				<h:panelGroup styleClass="input-campo-e-erro">
+					<h:inputText value="#{livroBean.livro.nroDePaginas}" id="input-paginas"
+						validatorMessage="#{msg['campo.invalido.tamanho']}"
+						converterMessage="#{msg['campo.invalido.formato']}" >
+						<f:validateLongRange minimum = "1" maximum = "9999" />
+					</h:inputText>
+					<h:message for="input-paginas" styleClass="form-mensagens" />
+				</h:panelGroup>
+
 			</h:panelGrid>
 			
 			<h:panelGroup styleClass="botao-container">

@@ -50,6 +50,8 @@ body {
 
 .form-mensagens {
 	color: var(--text-error);
+	font-size: 0.8rem;
+	font-weight: bold;
 }
 
 .input-container {
@@ -66,9 +68,17 @@ body {
 	margin: 5px;	
 }
 
+.input-campo-e-erro {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .combobox-categoria {
 	font-size: 1.1rem;
 	color: var(--text-color-primary);
+	width: 280px;
+	border-radius: 8px;
 }
 
 .botao-container {
