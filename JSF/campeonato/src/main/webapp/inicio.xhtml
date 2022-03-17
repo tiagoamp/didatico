@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Classificação do Campeonato</title>
+        <h:outputStylesheet name="css/styles.css" />
+    </h:head>
+
+    <h:body>
+
+        <h1>Classificação do Campeonato</h1>
+
+        <h:dataTable id="tabela-classificacao" value="#{campeonatoBean.classificacao}" var="time"
+                     styleClass="tb-classificacao" headerClass="tb-classificacao__header" rowClasses="tb-classificacao__row"
+                     cellpadding="5">
+            <h:column>
+                <f:facet name="header">Time</f:facet>
+                <h:outputText value="#{time.nome}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">PTS</f:facet>
+                <h:outputText value="#{time.pontos}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">J</f:facet>
+                <h:outputText value="#{time.jogos}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">V</f:facet>
+                <h:outputText value="#{time.vitorias}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">E</f:facet>
+                <h:outputText value="#{time.empates}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">D</f:facet>
+                <h:outputText value="#{time.derrotas}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">GP</f:facet>
+                <h:outputText value="#{time.golsPro}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">GC</f:facet>
+                <h:outputText value="#{time.golsContra}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">SG</f:facet>
+                <h:outputText value="#{time.saldoDeGols}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">%</f:facet>
+                <h:outputText value="#{time.percAproveitamento}" />
+            </h:column>
+        </h:dataTable>
+
+        <h:form id="form-partida" styleClass="panel-partida">
+            <h:messages styleClass="error-msg" />
+
+            <h:outputText value="Computar Partida" styleClass="label-partida"/>
+            <h:panelGrid id="panel-partida" columns="5">
+                <h:selectOneMenu value="#{campeonatoBean.partida.time1}" styleClass="combobox-time" title="Selecione o time"
+                                 required="true" requiredMessage="Time 1 não informado!">
+                    <f:selectItem itemValue="#{null}" itemLabel="selecione" />
+                    <f:selectItems value="#{campeonatoBean.times}" var="t1" itemValue="#{t1.abreviatura}" itemLabel="#{t1.abreviatura}" />
+                </h:selectOneMenu>
+                <h:inputText id="input-time1" value="#{campeonatoBean.partida.golsTime1}" maxlength="2" styleClass="input-resultado"
+                             required="true" requiredMessage="Gols do time 1 não informado!"
+                             converterMessage="Gols do time 1 devem ser um valor numérico!">
+                    <f:validator validatorId="GolsValidator" />
+                    <f:attribute name="nome-campo" value="Gols do time 1" />
+                </h:inputText>
+
+                <h:outputText value=" X " />
+
+                <h:inputText id="input-time2" value="#{campeonatoBean.partida.golsTime2}" maxlength="2" styleClass="input-resultado"
+                             required="true" requiredMessage="Gols do time 2 não informado!"
+                             converterMessage="Gols do time 2 devem ser um valor numérico!">
+                    <f:validator validatorId="GolsValidator" />
+                    <f:attribute name="nome-campo" value="Gols do time 2" />
+                </h:inputText>
+                <h:selectOneMenu value="#{campeonatoBean.partida.time2}" styleClass="combobox-time" title="Selecione o time"
+                                 required="true" requiredMessage="Time 2 não informado!">
+                    <f:selectItem itemValue="#{null}" itemLabel="selecione" />
+                    <f:selectItems value="#{campeonatoBean.times}" var="t2" itemValue="#{t2.abreviatura}" itemLabel="#{t2.abreviatura}" />
+                </h:selectOneMenu>
+
+            </h:panelGrid>
+
+            <h:panelGroup>
+                <h:commandButton value="ATUALIZAR" action="#{campeonatoBean.atualizar}" styleClass="btn-cadastrar" />
+            </h:panelGroup>
+
+        </h:form>
+
+    </h:body>
+</html>
