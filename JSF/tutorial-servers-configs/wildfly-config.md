@@ -10,7 +10,7 @@ Página de download: https://www.wildfly.org/downloads/
 
 ---
 
-## Configuração
+## Configurações
 
 ### Permissões de execução (se necessário)
 
@@ -40,6 +40,18 @@ Depois execute o script '_add-user.sh_', respondendo as perguntas que forem apar
 Crie como '_Management User_' e responda as demais perguntas como a opção default.
 
 Depois acesse a página de adminstração do servidor com o usuário/senha criado para testar: http://127.0.0.1:9990
+
+---
+
+## Novo projeto JSF e WildFly no IntelliJ Ultimate
+
+New Project (tela 1):
+
+![alt text](images/intellij_jsf_new_project.png "IntelliJ New Project 1")
+
+New Project (tela 2):
+
+![alt text](images/intellij_jsf_new_project2.png "IntelliJ New Project 2")
 
 ---
 
