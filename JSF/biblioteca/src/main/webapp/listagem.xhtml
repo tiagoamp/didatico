@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gestão de Biblioteca</title>
+	<h:outputStylesheet name="css/styles.css" />
+</h:head>
+
+<h:body>
+
+	<div class="header">
+		Gestão de Biblioteca
+	</div>
+	
+	<div class="main">
+	
+		<span class="titulo-pagina">Listagem de Livros</span>
+		
+		<h:form id="form-livros">
+		
+			<h:dataTable id="tb-livros" value="#{livroBean.livros}" var="livro"
+				border="1" cellpadding="5" headerClass="tab-header" styleClass="tab-livros">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{livro.id}" />
+		 	 	</h:column>
+				<h:column>
+					<f:facet name="header">ISBN</f:facet>
+					<h:outputText value="#{livro.isbn}" />
+		 	 	</h:column>
+		 	 	<h:column>
+					<f:facet name="header">Título</f:facet>
+					<h:outputText value="#{livro.titulo}" />
+		 	 	</h:column>
+		 	 	<h:column>
+					<f:facet name="header">Autor</f:facet>
+					<h:outputText value="#{livro.autor}" />
+		 	 	</h:column>
+		 	 	<h:column>
+					<f:facet name="header">Categoria</f:facet>
+					<h:outputText value="#{livro.categoria}" />
+		 	 	</h:column>
+		 	 	<h:column>
+					<f:facet name="header">Data de Publicação</f:facet>
+					<h:outputText value="#{livro.dataPublicacao}">
+						<f:converter converterId="MeuLocalDateConverter" />
+					</h:outputText>
+		 	 	</h:column>
+		 	 	<h:column>
+					<f:facet name="header">Nro de Páginas</f:facet>
+					<h:outputText value="#{livro.nroDePaginas}" />
+		 	 	</h:column>
+		 	 	<h:column>
+					<f:facet name="header">Ações</f:facet>
+					<h:commandLink value="Editar" action="#{livroBean.editar(livro)}" styleClass="btn-acao" />
+					<h:commandLink value="Remover" action="#{livroBean.remover(livro)}"
+						onclick="return confirm('Confirma exclusão?')" styleClass="btn-acao" />
+		 	 	</h:column>
+			</h:dataTable>
+
+		</h:form>
+		
+		<h:link value="Cadastrar novo livro" outcome="cadastro" styleClass="btn-acao btn-link-livro" />
+
+	</div>
+	
+	<div class="footer">
+		Desenvolvido por @tiagoamp - 2022
+	</div>
+
+</h:body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gestão de Biblioteca</title>
+	<h:outputStylesheet name="css/styles.css" />
+</h:head>
+
+<h:body>
+
+	<div class="header">
+		Gestão de Biblioteca
+	</div>
+	
+	<div class="main">
+	
+		<span class="titulo-pagina">Formulário de Cadastro de Livro</span>
+
+		<h:form id="form-cadastro-livro" styleClass="form-livro-container">
+			<h:messages styleClass="form-mensagens" /> 
+							
+			<h:panelGrid id="panel-cadastro-livro" columns="2" styleClass="input-container">
+				
+				<h:outputLabel value="Identificador" for="input-id" rendered="#{livroBean.livro.id != null}"/>
+				<h:inputText value="#{livroBean.livro.id}" id="input-id" 
+					disabled="true" rendered="#{livroBean.livro.id != null}" />
+	
+				<h:outputLabel value="ISBN(13)" for="input-isbn" />
+				<h:inputText value="#{livroBean.livro.isbn}" id="input-isbn" required="true" 
+					requiredMessage="Campo obrigatório: ISBN"
+					validatorMessage="Tamanho inválido: ISBN"
+					converterMessage="Formato Inválido: ISBN">
+					<f:validateLength minimum = "13" maximum = "13" />
+				</h:inputText>
+				
+				<h:outputLabel value="Título" for="input-titulo" />
+				<h:inputText value="#{livroBean.livro.titulo}" id="input-titulo" maxlength="100" required="true"
+					requiredMessage="Campo Obrigatório: Título"
+					validatorMessage="Tamanho inválido: Título">
+					<f:validateLength minimum = "2" maximum = "100" />
+				</h:inputText>
+				
+				<h:outputLabel value="Autor" for="input-autor" />
+				<h:inputText value="#{livroBean.livro.autor}" id="input-autor" maxlength="100" required="true" 
+					requiredMessage="Campo Obrigatório: Autor" 
+					validatorMessage="Tamanho inválido: Autor">
+					<f:validateLength minimum = "2" maximum = "100" />
+				</h:inputText>
+				
+				<h:outputLabel value="Categoria" for="input-categoria" />
+				<h:selectOneMenu value="#{livroBean.livro.categoria}" id="input-categoria" styleClass="combobox-categoria" required="true" 
+					requiredMessage="Campo Obrigatório: Categoria"> 
+			   		<f:selectItem itemValue="#{null}" itemLabel="-- selecione --" />
+			   		<f:selectItems value="#{livroBean.categorias}" var="cat" itemValue="#{cat}" itemLabel="#{cat}" />
+				</h:selectOneMenu> 
+						
+				<h:outputLabel value="Data de Publicação" for="input-data-pub" />
+				<h:inputText value="#{livroBean.livro.dataPublicacao}" id="input-data-pub" a:placeholder="dd/mm/aaaa"
+					converterMessage="Formato Inválido: Data de Publicação">
+					<f:converter converterId="MeuLocalDateConverter" />
+				</h:inputText>
+				
+				<h:outputLabel value="Nro de Páginas" for="input-paginas" />
+				<h:inputText value="#{livroBean.livro.nroDePaginas}" id="input-paginas"
+					validatorMessage="Valor inválido: Nro de Páginas" 
+					converterMessage="Valor Inválido: Nro de Páginas" >
+					<f:validateLongRange minimum = "1" maximum = "9999" />
+				</h:inputText>
+				
+			</h:panelGrid>
+			
+			<h:panelGroup styleClass="botao-container">
+				<h:commandButton 
+					value="#{livroBean.livro.id == null ? 'Cadastrar' : 'Atualizar'}" 
+					action="#{livroBean.salvar}" styleClass="btn-salvar"/>
+			</h:panelGroup>
+		
+		</h:form>
+		
+		<h:link value="Voltar" outcome="listagem" styleClass="btn-acao btn-link-livro" />
+		
+	</div>
+	
+	<div class="footer">
+		Desenvolvido em - 2022
+	</div>
+
+</h:body>
+</html>
