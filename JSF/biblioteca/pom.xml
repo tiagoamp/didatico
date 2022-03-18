@@ -73,8 +73,6 @@
                 <configuration>
                     <filename>${project.build.finalName}.war</filename>
                     <port>9990</port>
-                    <username>administrador</username>
-                    <password>senha</password>
                 </configuration>
             </plugin>
         </plugins>
