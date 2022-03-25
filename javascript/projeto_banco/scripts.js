@@ -23,6 +23,11 @@ function obterValor() {
     return valor;
 }
 
+function limparValor() {
+    const input = document.querySelector("#valor");
+    input.value = "";
+}
+
 function validar(valor) {
     if (!valor || valor.length === 0) {
         alert('Valor não preenchido!');
