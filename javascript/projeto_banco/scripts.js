@@ -28,6 +28,13 @@ function limparValor() {
     input.value = "";
 }
 
+function limparSaida() {
+    const saida = document.querySelector("#saida");
+    while(saida.hasChildNodes()) {
+        saida.removeChild(saida.lastChild);
+    }
+}
+
 function validar(valor) {
     if (!valor || valor.length === 0) {
         alert('Valor não preenchido!');
