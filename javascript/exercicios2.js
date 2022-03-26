@@ -249,10 +249,6 @@ class Animal {
         this.idade = idade;
         this.som = som;
     }
-
-    andar() {
-         console.log('estou andando');
-    }
 }
 
 class Cachorro extends Animal {
@@ -268,7 +264,7 @@ class Gato extends Animal {
 }
 
 const snoopy = new Cachorro('snoopy', 10);
-console.log( snoopy.som );   // latido     // polimorfismo (som vem de animal)
+console.log( snoopy.som );   // latido     
 const frajola = new Gato('frajola', 8);
 console.log( frajola.som );   // miado
 
