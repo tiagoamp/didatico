@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
+    <title>Exercicio de Javascript</title>
+    <style>
+        .user-info {
+            display: flex;
+            flex-direction: row;
+            margin: 20px;
+            background-color: aquamarine;
+        }
+        .user-info img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3>Usuários do sistema</h3>
+
+    <div id='usuarios-info'> 
+    </div>
+
+<script>
+
+        obterUsuarios();
+        
+        async function obterUsuarios() {
+            try {
+                let resp = await fetch('https://randomuser.me/api/?results=4');
+                resp = await resp.json();
+                const usuarios = resp.results;
+                exibir(usuarios);
+            } catch (erro) {
+                console.log(erro);
+            }
+        }
+
+        function exibir(usuarios) {
+            console.log(usuarios);
+            const div = document.querySelector('#usuarios-info');
+            usuarios.forEach(u => {
+                const divUser = document.createElement('div');
+                divUser.className = 'user-info';
+                divUser.innerHTML = `
+                    <img src=${u.picture.large} />
+                    <div>
+                        <p> ${u.name.title} ${u.name.first} ${u.name.last} </p>       
+                        <p> ${u.email} </p>
+                        <p> ${u.location.street.name} - ${u.location.street.number} 
+                            ${u.location.city} - ${u.location.state} - ${u.location.country} </p>      
+                    </div>      
+                `;
+                div.appendChild(divUser);
+            });
+        }
+
+    </script>
+</body>
+</html>
