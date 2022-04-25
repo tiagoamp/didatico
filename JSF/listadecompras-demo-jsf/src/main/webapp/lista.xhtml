@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Lista de Compras</title>
+    <h:outputStylesheet name="css/styles.css" />
+</h:head>
+
+<h:body>
+
+    <h1>Lista de Compras</h1>
+
+    <h:form id="form-item" styleClass="form-container" >
+        <h:outputLabel value="Item:" for="input-item" />
+        <h:inputText id="input-item" value="#{listaBean.item.descricao}" styleClass="input-item" title="Informe o item"/>
+        <h:message for="input-item" styleClass="error-msg" />
+        <h:outputLabel value="Quantidade:" for="input-qtd" />
+        <h:inputText id="input-qtd" value="#{listaBean.item.quantidade}" maxlength="5" styleClass="input-qtd"
+                     converterMessage="Quantidade deve ser um valor numérico!">
+            <f:validator validatorId="ValorPositivoValidator" />
+        </h:inputText>
+        <h:message for="input-qtd" styleClass="error-msg" />
+        <h:selectOneMenu value = "#{listaBean.item.medida}">
+            <f:selectItem itemValue = "unidade" itemLabel = "Unidades" />
+            <f:selectItem itemValue = "pacote" itemLabel = "Pacotes" />
+            <f:selectItem itemValue = "garrafa" itemLabel = "Garrafas" />
+            <f:selectItem itemValue = "kilo" itemLabel = "Kilos" />
+            <f:selectItem itemValue = "litro" itemLabel = "Litros" />
+        </h:selectOneMenu>
+        <h:commandButton value=" + " action="#{listaBean.adicionar}" styleClass="btn" title="Adicionar item na lista" />
+    </h:form>
+
+    <h:form id="form-lista" styleClass="form-container">
+        <h:selectManyListbox value="#{listaBean.itensSelecionados}" styleClass="select-item">
+            <f:selectItems value="#{listaBean.lista}" var="item" itemLabel="#{item}" itemValue="#{item}" />
+        </h:selectManyListbox>
+        <h:commandButton value=" - " action="#{listaBean.remover}" styleClass="btn" title="Remover item na lista" />
+    </h:form>
+
+    <h:link value="Ir para página de impressao" outcome="impressao" />
+
+</h:body>
+
+</html>
