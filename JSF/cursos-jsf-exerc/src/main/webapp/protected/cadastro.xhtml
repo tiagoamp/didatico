@@ -1,0 +1,46 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+                 xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://java.sun.com/jsf/html"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="conteudo">
+
+        <span class="titulo-pagina">Cadastro de Curso</span>
+
+        <h:form id="form-cadastro" styleClass="form-container">
+
+            <p:messages id="msgs-forms" showSummary="false" showDetail="true" closable="true" showIcon="false">
+                <p:autoUpdate/>
+            </p:messages>
+
+            <p:panelGrid id="panel-cadastro" columns="2" >
+
+                <p:outputLabel value="Código" for="input-codigo" />
+                <p:inputText value="#{cursoBean.curso.codigo}" id="input-codigo" disabled="#{cursoBean.curso.codigo != null}" />
+
+                <h:outputLabel value="Nome" for="input-nome" />
+                <p:inputText value="#{cursoBean.curso.nome}" id="input-nome" maxlength="100" />
+
+                <p:outputLabel value="Data de Início" for="input-data-ini" />
+                <p:datePicker id="input-data-ini" value="#{cursoBean.curso.dataInicio}" pattern="dd/MM/yyyy" />
+
+                <p:outputLabel value="Data de Fim" for="input-data-fim" />
+                <p:datePicker id="input-data-fim" value="#{cursoBean.curso.dataFim}" pattern="dd/MM/yyyy" />
+
+            </p:panelGrid>
+
+            <h:panelGroup styleClass="botao-container">
+                <p:commandButton style="margin: 20px"
+                                 value="#{cursoBean.curso.codigo == null ? 'Cadastrar' : 'Atualizar'}"
+                                 action="#{cursoBean.salvar}"
+                                 update="panel-cadastro" />
+            </h:panelGroup>
+
+        </h:form>
+
+        <p:link value="Voltar" outcome="principal" />
+
+    </ui:define>
+
+</ui:composition>

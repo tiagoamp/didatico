@@ -1,0 +1,54 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+                 xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://java.sun.com/jsf/html"
+                 xmlns:f="http://java.sun.com/jsf/core"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="conteudo">
+
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{cursoBean.onLoad}" />
+        </f:metadata>
+
+        <h:form id="form-livros">
+
+            <p:messages id="msgs-forms" showSummary="false" showDetail="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>
+
+            <p:dataTable id="tb-cursos" value="#{cursoBean.cursos}" var="curso" emptyMessage="Sem registros"
+                         allowUnsorting="true" sortMode="single" >
+                <p:column headerText="Código">
+                    <h:outputText value="#{curso.codigo}" />
+                </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{curso.nome}" />
+                </p:column>
+                <p:column headerText="Data Início" sortBy="#{curso.dataInicio}" sortOrder="asc">
+                    <h:outputText value="#{curso.dataInicio}" >
+                        <f:converter converterId="MeuLocalDateConverter" />
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Data Fim">
+                    <h:outputText value="#{curso.dataFim}">
+                        <f:converter converterId="MeuLocalDateConverter" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="Ações" styleClass="acoes-col">
+                    <p:commandButton value="Editar" action="#{cursoBean.editar(curso)}" styleClass="ui-button-secondary"
+                                     update="tb-cursos" />
+                    <p:commandButton value="Remover" action="#{cursoBean.excluir(curso)}"
+                                     onclick="return confirm('Confirma exclusão?')" styleClass="ui-button-danger"
+                                     update="tb-cursos" />
+                </p:column>
+            </p:dataTable>
+
+        </h:form>
+
+        <p:linkButton value="Cadastrar" outcome="cadastro" style="margin: 20px" />
+
+    </ui:define>
+
+</ui:composition>
