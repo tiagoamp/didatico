@@ -1,0 +1,12 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://java.sun.com/jsf/html">
+
+    <div class="user-info">
+        <h:form styleClass="form-user-info">
+            <span> Usuário: <p:outputText value="#{loginBean.usuario.nome}" style="font-style: italic" /> </span>
+            <span> <p:commandButton value="Logout" action="#{loginBean.logout}" /> </span>
+        </h:form>
+    </div>
+
+</ui:composition>

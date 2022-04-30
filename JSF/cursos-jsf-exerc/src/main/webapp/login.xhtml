@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Gestão de Biblioteca</title>
+    <h:outputStylesheet name="css/styles.css" />
+</h:head>
+
+<h:body>
+
+    <div class="login-container">
+
+        <h:form id="form-login">
+
+            <p:messages showDetail="true" showSummary="false" showIcon="false" >
+                <p:autoUpdate />
+            </p:messages>
+
+            <p:panelGrid id="panel-login" columns="1" style="text-align: center">
+                <h:outputText value="Autenticação" style="font-weight: bold; font-size: 1.2rem" />
+
+                <p:outputLabel value="login" for="input-login" />
+                <p:inputText value="#{loginBean.login}" id="input-login" required="true" requiredMessage="Campo obrigatório: login" />
+
+                <p:outputLabel value="Senha" for="input-senha" />
+                <p:password id="input-senha" value="#{loginBean.senha}" required="true" requiredMessage="Campo obrigatório: senha" />
+
+                <p:commandButton value="OK" action="#{loginBean.autenticar}" update="form-login" />
+            </p:panelGrid>
+        </h:form>
+
+    </div>
+
+</h:body>
+</html>
