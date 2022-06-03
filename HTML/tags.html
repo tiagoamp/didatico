@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags de HTML</title>
+</head>
+<body>
+    
+    <!-- Isso é um comentário -->
+
+    <!-- Tags h1 a h6 -->
+
+    <h1> Título Principal com H1 </h1>
+    <h2> Título com H2 </h2>
+    <h3> Título com H3 </h3>
+    <h4> Título com H4 </h4>
+    <h5> Título com H5 </h5>
+    <h6> Título com H6 </h6>
+      
+    <!-- separador (barra horizontal) -->
+    <hr>
+
+    <!-- div, section, span -->
+
+    <div>
+        Isto está dentro da div
+    </div>
+    <div>
+        Isto está dentro de outra div
+    </div>
+
+    <section>
+        Isto está dentro de uma section
+    </section>
+
+    <div>
+        Este texto está numa 'div'. 
+        <span>Estre trecho está dentro da tag span.</span>
+        Aqui continua dentro da div.
+    </div>
+
+    <hr>
+
+    <!-- p, em, strong -->
+
+    <p> Isso é um parágrafo. </p>
+    <p> Isso é outro parágrafo. </p>
+
+    <p>
+        Este é mais um parágrafo.
+        <em> Isso deve aparecer em itálico. </em>
+        <strong> Isso deve aparecer em negrito. </strong>
+    </p>
+
+    <hr>
+
+    <!-- br -->
+
+    <div>
+        Esta é uma linha de texto. <br>
+        Usei 'break' (br) para quebrar isso pra outra linha. <br>
+        Nova linha.
+    </div>
+
+    <hr>
+
+    <!-- ul, ol, li -->
+    Listas
+    
+    <ul>
+        <li>item da lista</li>
+        <li>outro item da lista</li>
+        <li>mais um item da lista</li> 
+    </ul>
+
+    <ol>
+        <li>item da lista</li>
+        <li>outro item da lista</li>
+        <li>mais um item da lista</li> 
+    </ol>
+
+    <hr>
+
+    <!-- table, tr, th, td -->
+    Tabelas
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+        </tr>
+        <tr>
+            <td>Rachel</td>
+            <td>Green</td>
+        </tr>
+        <tr>
+            <td>Ross</td>
+            <td>Geller</td>
+        </tr>
+        <tr>
+            <td>Chandler</td>
+            <td>Bing</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- input, label -->
+    <p>Inputs</p>
+
+    <input type="text" size="40">  <!-- atributos sao opcionais -->
+    <br>
+    <input type="password" size="10"> 
+    <br>
+    <input type="number">
+    <br>
+    <input type="date">
+    <br>
+    <input type="radio" id="radio1" name="radio_group" checked> <label for="radio1"> valor para radio 1 </label>
+    <input type="radio" id="radio2" name="radio_group"> <label for="radio2"> valor para radio 2 </label>
+    <br>
+    <input type="checkbox"> valor para checkbox
+ 
+    <hr>
+
+    <!-- textarea, select, button -->
+    <textarea rows="4" cols="40"> Texto padrão no textarea </textarea>
+    <br>
+    <select name="planetas">
+        <option value="tatooine">Tatooine</option>
+        <option value="naboo">Naboo</option>
+        <option value="kashyyyk">Kashyyyk</option>
+    </select>
+    <br>
+    <button> Botão </button>
+
+    <hr>
+
+    <!-- exemplo de formulario -->
+    <p>Formulário</p>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" size="40">  
+    <br>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" size="10"> 
+    <br>
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade">
+    <br>
+    <label for="Data de Nascimento">Data de Nascimento:</label>
+    <input type="date" id="data-nascimento">
+    <br>
+    <label>Tipo Sanguineo</label>
+    <input type="radio" id="tipo-a" name="sangue"> <label for="tipo-a"> Tipo A </label>
+    <input type="radio" id="tipo-b" name="sangue"> <label for="tipo-b"> Tipo B </label>
+    <input type="radio" id="tipo-ab" name="sangue"> <label for="tipo-ab"> Tipo AB </label>
+    <input type="radio" id="tipo-o" name="sangue"> <label for="tipo-o"> Tipo O </label>
+    <br>
+    <input type="checkbox"> Doador
+    <br>
+    <button> Enviar </button>
+
+    <hr>
+
+    <!-- img -->
+    Imagens <br>
+    <img src="imagem.jpg" alt="imagem local" width="300" height="100">
+    <br>
+    <img src="https://upload.wikimedia.org/wikipedia/pt/b/be/Invincible_Iron_Man_Vol_2_2.jpg" 
+        alt="imagem remota" width="200" height="250">
+
+    <hr>
+
+    <!-- a (anchor - links) -->
+    Links <br>
+    <a href="pagina2.html"> link para a pagina 2 </a>
+    <br>
+    <a href="pagina2.html" target="_blank"> link para a pagina 2 em outra aba </a>
+    <br>
+    <a href="https://www.google.com/"> link para pagina na web </a>
+
+</body>
+</html>
