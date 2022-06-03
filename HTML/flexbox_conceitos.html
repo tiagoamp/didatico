@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+
+            flex-direction: row;
+            flex-wrap: wrap;  
+            justify-content: stretch;
+            align-items: flex-start;
+
+            gap: 20px;
+        }
+        div {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+        #div1 {
+            background-color: cadetblue;
+            /* flex: 1; */
+            /* flex-grow: 1; */     /* usar com flex-grow */
+        }
+        #div2 {
+            background-color: brown;
+            /* flex: 3; */
+            /* flex-grow: 3; */
+        }
+        #div3 {
+            background-color: darkgoldenrod;
+            /* flex: 1; */
+            /* flex-grow: 1; */
+        }
+    </style>    
+</head>
+<body>
+    
+    <div id="div1">
+        div 1
+    </div>
+    <div id="div2">
+        div 2
+    </div>
+    <div id="div3">
+        div 3
+    </div>
+
+</body>
+</html>
