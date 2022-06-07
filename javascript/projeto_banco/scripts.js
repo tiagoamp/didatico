@@ -9,26 +9,15 @@ class ContaBancaria {
     }
 
     debitar(valor) {
-        if (this.saldo >= valor) {
-            this.saldo -= valor;
-            const lancamento = new Lancamento('débito', valor);
-            this.operacoes.push( lancamento );
-            return true;
-        }
-        return false;
+        //TODO: implementar!
     }
 
     creditar(valor) {
-        this.saldo += valor;
-        const lancamento = new Lancamento('crédito', valor);
-        this.operacoes.push( lancamento );
+        //TODO: implementar!
     }
 
     gerarExtrato() {
-        const extrato = this.operacoes.map( function(lancamento) {
-            return `Data: ${lancamento.data.toLocaleString('pt-BR')} - ${lancamento.tipo} - R$ ${lancamento.valor}`;
-        });
-        return extrato;
+        //TODO: implementar!
     }
     
 }
@@ -80,46 +69,23 @@ function efetuarOperacao(acao) {
 
 
 function sacar(valor) {
-    const sucesso = conta.debitar(valor);
-    if (sucesso) {
-        alert('Saque efetuado com sucesso!');
-    } else {
-        alert('Saldo insuficiente!')
-    }
+    //TODO: implementar!
 }
 
 function depositar(valor) {
-    conta.creditar(valor);
-    alert('Valor depositado com sucesso!')
+    //TODO: implementar!
 }
 
 function consultarSaldo() {
-    alert('Saldo atual = R$ ' + conta.saldo);
+    //TODO: implementar!
 }
 
 function consultarExtrato() {
-    const extrato = conta.gerarExtrato();
-    if (extrato.length === 0) {
-        alert('Sem movimentação!');
-    } else {
-        const extratoFormatado = extrato.map( function(e) {
-            return '\n' + e;
-        });
-        //alert(extratoFormatado);
-        exibirExtrato(extratoFormatado);
-    }
+    //TODO: implementar!
 }
 
 function exibirExtrato(dados) {
-    const saida = document.querySelector('#saida');
-    const ul = document.createElement('ul');
-    dados.forEach( function(e) {
-        const li = document.createElement('li');
-        li.innerHTML = e;
-        li.style.color = e.includes('débito') ? 'red' : 'blue';
-        ul.appendChild(li);
-    })
-    saida.appendChild(ul);
+    //TODO: implementar!
 }
 
 function obterValor() {
