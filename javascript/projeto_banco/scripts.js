@@ -1,92 +1,22 @@
 // classes de domínio (modelo)
 
 class ContaBancaria {
-    constructor(agencia, numeroConta, saldo) {
-        this.agencia = agencia;
-        this.numeroConta = numeroConta;
-        this.saldo = saldo;
-        this.operacoes = [];
-    }
-
-    debitar(valor) {
-        //TODO: implementar!
-    }
-
-    creditar(valor) {
-        //TODO: implementar!
-    }
-
-    gerarExtrato() {
-        //TODO: implementar!
-    }
     
 }
 
 class Lancamento {
-    constructor(tipo, valor) {
-        this.tipo = tipo;
-        this.valor = valor;
-        this.data = new Date(); // data atual
-    }
+
 }
 
 
-var conta = new ContaBancaria(1212, 333, 1000);
+// var conta = new ContaBancaria(1212, 333, 1000);
 
 
 // controller: interação com UI
 function efetuarOperacao(acao) {
-    let valor = obterValor();
-
-    if (acao !== 'saldo' && acao !== 'extrato') {
-        const valido = validar(valor);
-        if (!valido) {
-            return; // nao faz nada
-        } 
-        valor = parseFloat(valor); // float = pto flutuante
-    }
-    
-    switch (acao) {
-        case 'sacar': 
-            sacar(valor);
-            break;
-        case 'saldo':
-            consultarSaldo();
-            break;
-        case 'depositar':
-            depositar(valor); 
-            break;
-        case 'extrato':
-            limparSaida();
-            consultarExtrato();
-            break;
-        default:
-            alert('Operação não reconhecida!');
-    }
-
-    limparValor();
+    alert('Implementar');
 }
 
-
-function sacar(valor) {
-    //TODO: implementar!
-}
-
-function depositar(valor) {
-    //TODO: implementar!
-}
-
-function consultarSaldo() {
-    //TODO: implementar!
-}
-
-function consultarExtrato() {
-    //TODO: implementar!
-}
-
-function exibirExtrato(dados) {
-    //TODO: implementar!
-}
 
 function obterValor() {
     const input = document.querySelector("#valor");
