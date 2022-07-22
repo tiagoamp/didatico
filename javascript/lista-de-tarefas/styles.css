@@ -1,6 +1,4 @@
 body {
-    margin: 0px;
-    padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -55,10 +53,6 @@ header {
     font-size: 1.5rem;
 }
 
-.lista ul {
-    list-style-type: none;
-}
-
 .lista ul li {
     margin: 15px 10px;
     display: flex;
@@ -70,14 +64,14 @@ header {
     margin-left: 10px;
 }
 
-.acoes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .concluido {
     text-decoration: line-through;
     font-style: italic;
     color: gray;
+}
+
+.acoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
