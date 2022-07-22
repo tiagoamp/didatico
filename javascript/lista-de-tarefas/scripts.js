@@ -39,11 +39,11 @@ function carregarDados() {
         }
         const item = montarElementoDoItem(tarefa);
         listaUl.append(item);
-        const elemQtdConcluidos = document.querySelector('#qtdConcluidos');
-        elemQtdConcluidos.innerText = qtdConcluidos;
-        const elemQtdPendentes = document.querySelector('#qtdPendentes');
-        elemQtdPendentes.innerText = tarefas.length - qtdConcluidos;
     }
+    const elemQtdConcluidos = document.querySelector('#qtdConcluidos');
+    elemQtdConcluidos.innerText = qtdConcluidos;
+    const elemQtdPendentes = document.querySelector('#qtdPendentes');
+    elemQtdPendentes.innerText = tarefas.length - qtdConcluidos;
 }
 
 function montarElementoDoItem(tarefa) {
